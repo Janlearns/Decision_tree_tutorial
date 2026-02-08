@@ -1,33 +1,138 @@
-# Decision_tree_tutorial
+# Decision Tree Tutorial
 
-## Apa Itu Decision Tree?
+Tutorial komprehensif mengenai implementasi algoritma Decision Tree menggunakan Python dan scikit-learn.
 
-Decision Tree (Pohon Keputusan) adalah algoritma machine learning yang menggunakan struktur pohon untuk memprediksi nilai target. Setiap node dalam pohon mewakili sebuah fitur (kolom) dalam dataset, setiap cabang mewakili aturan keputusan, dan setiap leaf node mewakili hasil prediksi. Decision Tree mudah diinterpretasikan dan divisualisasikan, sehingga cocok untuk memahami bagaimana fitur-fitur dalam data mempengaruhi hasil prediksi.
+---
 
-## Cara Install dan Menggunakan
+## 📋 Daftar Isi
 
-### Instalasi
+- [Pengenalan Decision Tree](#pengenalan-decision-tree)
+- [Prasyarat Sistem](#prasyarat-sistem)
+- [Instalasi dan Konfigurasi](#instalasi-dan-konfigurasi)
+- [Struktur Proyek](#struktur-proyek)
+- [Alur Implementasi](#alur-implementasi)
+- [Penggunaan](#penggunaan)
+- [Lisensi](#lisensi)
 
-Untuk menjalankan kode ini, Anda memerlukan Python dan beberapa library berikut:
+---
 
--   pandas
--   scikit-learn
--   numpy
+## Pengenalan Decision Tree
 
-Anda dapat menginstall library-library ini menggunakan pip:
+### Apa Itu Decision Tree?
+
+Decision Tree (Pohon Keputusan) merupakan salah satu algoritma machine learning yang paling populer dan mudah dipahami. Algoritma ini menggunakan struktur pohon untuk melakukan prediksi terhadap nilai target berdasarkan fitur-fitur input.
+
+**Komponen Utama Decision Tree:**
+
+- **Node (Simpul):** Mewakili fitur atau atribut dalam dataset yang digunakan untuk membuat keputusan
+- **Branch (Cabang):** Mewakili aturan keputusan yang menghubungkan satu node dengan node lainnya
+- **Leaf Node (Node Daun):** Merupakan hasil prediksi atau klasifikasi akhir
+
+**Keunggulan Decision Tree:**
+
+- ✅ Mudah diinterpretasikan dan divisualisasikan
+- ✅ Tidak memerlukan normalisasi data
+- ✅ Dapat menangani data kategorikal maupun numerik
+- ✅ Berguna untuk memahami pengaruh fitur terhadap hasil prediksi
+
+---
+
+## Prasyarat Sistem
+
+Sebelum menjalankan proyek ini, pastikan sistem Anda memenuhi persyaratan berikut:
+
+- Python 3.7 atau lebih tinggi
+- pip (Python Package Manager)
+- Memory RAM minimal 2 GB
+- Disk space minimal 500 MB
+
+---
+
+## Instalasi dan Konfigurasi
+
+### Langkah 1: Instal Library yang Diperlukan
+
+Proyek ini memerlukan library-library berikut untuk menjalankan Decision Tree:
+
+| Library | Versi | Deskripsi |
+|---------|-------|-----------|
+| pandas | >= 1.2.0 | Manipulasi dan analisis data |
+| scikit-learn | >= 0.24.0 | Algoritma machine learning |
+| numpy | >= 1.19.0 | Komputasi numerik |
+
+#### Instalasi via pip:
 
 ```bash
 pip install pandas scikit-learn numpy
 ```
 
-## Langkah-Langkah dalam Decision_tree.py
+#### Atau menggunakan requirements.txt:
 
-Kode `Decision_tree.py` melakukan langkah-langkah berikut:
+```bash
+pip install -r requirements.txt
+```
 
-1.  **Import Library:** Mengimpor library yang diperlukan seperti pandas, scikit-learn, dan numpy.
-2.  **Siapkan Data:** Memuat dataset Iris menggunakan `datasets.load_iris()` dari scikit-learn dan mengubahnya menjadi pandas DataFrame.
-3.  **Pisahkan Fitur dan Target:** Memisahkan fitur (data input) dari target (data yang ingin diprediksi).
-4.  **Bagi Data menjadi Training dan Testing:** Membagi data menjadi set training dan testing menggunakan `train_test_split` dari scikit-learn.
-5.  **Inisialisasi dan Latih Model:** Membuat objek `DecisionTreeClassifier` dan melatihnya menggunakan data training dengan `model.fit(X_train, y_train)`.
-6.  **Prediksi:** Menggunakan model yang sudah dilatih untuk memprediksi target pada data testing dengan `model.predict(X_test)`.
-7.  **Evaluasi Akurasi:** Menghitung akurasi model dengan membandingkan hasil prediksi dengan nilai target sebenarnya menggunakan `accuracy_score`.
+---
+
+## Struktur Proyek
+
+```
+Decision_tree_tutorial/
+├── Decision_tree.py      # Script utama untuk implementasi Decision Tree
+├── README.md             # Dokumentasi proyek
+└── requirements.txt      # Daftar dependencies (opsional)
+```
+
+---
+
+## Alur Implementasi
+
+Script `Decision_tree.py` mengimplementasikan langkah-langkah berikut dalam mengembangkan model Decision Tree:
+
+### 1. Impor Library
+Mengimpor semua library yang diperlukan untuk pengolahan data dan machine learning
+
+### 2. Persiapan Data
+Memuat dataset Iris menggunakan `datasets.load_iris()` dari scikit-learn dan mengkonversinya menjadi pandas DataFrame untuk memudahkan manipulasi data
+
+### 3. Pemisahan Fitur dan Target
+Memisahkan fitur-fitur input (X) dari nilai target yang ingin diprediksi (y)
+
+### 4. Pembagian Data Training dan Testing
+Membagi dataset menjadi dua subset:
+- **Training Set:** Digunakan untuk melatih model (biasanya 70-80% dari total data)
+- **Testing Set:** Digunakan untuk mengevaluasi performa model (biasanya 20-30% dari total data)
+
+### 5. Inisialisasi dan Pelatihan Model
+Membuat instance `DecisionTreeClassifier` dan melatihnya menggunakan data training dengan memanggil method `fit(X_train, y_train)`
+
+### 6. Prediksi
+Menggunakan model yang telah dilatih untuk melakukan prediksi pada data testing dengan method `predict(X_test)`
+
+### 7. Evaluasi Model
+Mengevaluasi performa model dengan menghitung akurasi menggunakan `accuracy_score`, membandingkan hasil prediksi dengan nilai target sebenarnya
+
+---
+
+## Penggunaan
+
+### Menjalankan Script
+
+Untuk menjalankan Decision Tree tutorial, gunakan perintah berikut:
+
+```bash
+python Decision_tree.py
+```
+
+### Output yang Diharapkan
+
+Script akan menampilkan:
+- Akurasi model pada data testing
+- Laporan klasifikasi lengkap
+- Insights mengenai performa model
+
+---
+
+## Lisensi
+
+Proyek ini bebas digunakan untuk keperluan pendidikan dan penelitian.
